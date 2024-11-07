@@ -3,9 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "node": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "require": "./dist/*/index.cjs",
+      "node": "./dist/*/index.cjs",
+      "import": "./dist/*/index.mjs",
+      "types": "./dist/*/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild"
   },
